@@ -1,0 +1,683 @@
+@font-face{
+	font-family: "Inter-UI-Medium";
+
+}
+@font-face{
+	font-family: "Inter-UI-Regular";
+
+}
+
+.dark-text{
+	color: #333333;
+}
+.media-middle .media-left, .media-middle .media-body, .media-middle .media-right{
+	vertical-align: middle;
+}
+.flex{
+	display: flex;
+	align-items: center;
+
+}
+.label-success{
+	color: #15bc7c;
+	background-color: #ebfbf5;
+	text-transform: uppercase;
+	padding: 5px;
+}
+.label-danger{
+	color: #e24141;
+	background-color: #fef0f0;
+	text-transform: uppercase;
+	padding: 5px;
+}
+.label-warning{
+	color: #fbae09;
+	background-color: #fff7e6;
+	text-transform: uppercase;
+	padding: 5px;
+}
+.label-purpel{
+	background-color: #eaddf3;
+	color: #8222c4;
+}
+.bg-white{
+	background-color: #fff;
+}
+.circle{
+	border-radius: 50%;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	vertical-align: middle;
+}
+h1, h2, h3, h4{
+	font-weight: inherit;
+	margin-top: 0px;
+}
+.small-img{
+	width: 50px;
+	height: 50px;
+}
+a, .btn {
+	transition: all 0.3s ease;
+}
+a:focus{
+	text-decoration: none;
+}
+.round-button{
+	border-radius: 30px;
+}
+.green-button{
+	background-color: #15bc7c;
+	color: #fff;
+	text-transform: capitalize;
+}
+.green-button:hover{
+	background-color: #fff;
+	border-color: #15bc7c;
+	color: #15bc7c;
+}
+.content-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 20px;
+    border-bottom: 2px solid #d2dbe4;
+    margin-bottom: 40px;
+
+}
+.content-header .content-header-title{
+	margin: 0;
+}
+.content-header a{
+    padding: 10px 15px;
+    border-radius: 37px;
+    font-size: 16px;
+}
+.green-btn{
+	background-color: #15bc7c;
+	color: #fff !important;
+}
+.green-btn:hover{
+	background-color: #fff;
+	color: #15bc7c;
+	border: 1px solid #15bc7c;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #15bc7c !important;
+	text-decoration: none;
+}
+body{
+	color: #5e666e;
+	background-color: #e8ecf0;
+}
+
+/*main-content CC starts here*/
+.main-content{
+	font-family: "Inter-UI-Medium";
+	background-color: #e8ecf0;
+	height: 100%;
+	padding: 50px 100px;
+    display: table;
+   	width: 100%;
+}
+.main-content .container-fluid{
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+.main-content .page-header{
+	font-size: 24px;
+}
+.main-content .page-header a{
+	color: #727b8c;
+	font-size: 26px;
+}
+.main-content .page-header a:hover{
+	color: #15bc7c;
+}
+.main-content .page-header h1{
+	color: #15bc7c;
+	margin-top: 0;
+	margin-bottom:20px; 
+	font-size: 50px;
+}
+.tile .thumbnail{
+	min-height: 280px;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+.tile .thumbnail:hover{
+	border-color: #15bc7c; 
+}
+.tile a{
+		color: #333333;
+	}
+.tile .thumbnail img{
+	display: inline-block;
+}
+.tile .thumbnail .thumbnail-title{
+	margin-top: 30px; 
+}
+/*main-content CC ends here*/
+
+/*log-in CCS ends here*/
+.log-in{
+	background-color: #fff;
+	padding: 50px;
+	width: 500px;
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+}
+.log-in .form-header {
+	color: #8499ad;
+	font-size: 18px;
+}
+.log-in .form-header-title{
+	color: #333333;
+}
+.log-in .form-body{
+	margin: 50px 0px;
+}
+.log-in .form-control{
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px;
+	border-radius:30px;
+}
+.log-in .form-footer{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.log-in .form-footer .back-button{
+	color: #30394a;
+	text-transform: capitalize;
+	transition: all 0s ease;
+
+}
+
+.log-in .form-footer .back-button span{
+	transition: all 0.3s ease;
+}
+.log-in .form-footer .back-button:hover span{
+	padding-right: 5px;
+}
+.icon_input {
+	position: relative;
+}
+.icon_input .form-control{
+	padding-left: 45px;
+}
+.icon_input .form-control:focus{
+	box-shadow: inset 35px 0px 0px 0px #eee;
+    border-color: #eee;
+}
+
+.icon_input span{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 40px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bfc7cf;
+    font-size: 20px;
+}
+.log-in .form-footer .btn{
+	padding: 7px 26px;
+}
+/*login CSS ends here*/
+/*aside CSS starts here*/
+.left-bar{
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	height: 100%;
+	overflow-y: auto;
+	background-color: #30394a;
+	color: #fff; 
+	min-width: 260px;
+	
+}
+.nav{
+	    padding: 20px 0px;
+}
+.left-bar .menu-logo{
+	text-transform: capitalize;
+	padding: 30px 30px; 
+	border-bottom:1px solid #404a5d;
+}
+.left-bar .menu-logo span{
+	padding-left: 15px;
+	vertical-align: middle;
+}
+.left-bar .menu-logo img{
+	
+	height: 15px;
+	width: 15px;
+	vertical-align: middle;
+}
+.nav ul{
+	list-style-type: none; 
+	padding-left: 0px;
+}
+.nav ul li a{
+	color: #586b8d;
+	font-size: 16px;
+	padding-left: 30px;
+	padding-right: 30px;
+	display: block;
+	position: relative;
+}
+.nav ul li a:hover{
+	color: #fff !important;
+}
+.nav ul li a:before{
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 0;
+	transition: all .3s ease;
+	background-color: #15bc7c;
+}
+.nav ul li a:hover:before{
+	width: 10px;
+}
+.nav ul li a:hover .fa{
+	color: #15bc7c !important;
+}
+.nav ul li{
+	position: relative;
+	margin: 20px 0px;
+
+}
+.nav ul li span{
+	padding-right: 20px;
+}
+.menu-title{
+	padding: 0px 30px;
+}
+/*aside CSS ends here*/
+/*content CSS start here*/
+.content{
+	padding-left: 260px;
+	margin-top: 110px;
+	float: left;
+    width: 100%;
+}
+/*top bar CSS start here*/
+.dropdown-topbar{
+	padding-left: 0;
+}
+.page-title{
+	text-transform: capitalize;
+}
+.top_bar{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 30px;
+	margin-left: 260px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #fff;
+	z-index: 99;
+}
+.dropdown-topbar{
+	display: flex;
+	align-items: center;
+}
+.dropdown{
+	margin-bottom: 0;
+}
+.notificaton{
+	font-size: 24px;
+	color: #5e666e;
+	position: relative;
+}
+.notificaton:hover .badge{
+	background-color: #000;
+	color: #ffcd04;
+
+}
+.notificaton .badge{
+	background-color: #ffcd04;
+    color: #5e666e;
+    position: absolute;
+    top: -11px;
+    right: -11px;
+    border-radius: 50%;
+    height: 23px;
+    width: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown-topbar .dropdown .dropdown-toggle .fa{
+	color: #89939c;
+}
+.dropdown-topbar .dropdown .dropdown-menu{
+	right: 0;
+	padding: 0;
+	left: auto;
+} 
+.dropdown-topbar .dropdown .dropdown-menu li a{
+	text-transform: capitalize;
+	padding: 10px;
+}
+.dropdown-topbar .dropdown .dropdown-menu li a:hover{
+	background-color: #5e666e;
+}
+.dropdown-topbar .dropdown .user-img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #efefef;
+	display: inline-block;
+}
+.dropdown-topbar .dropdown .user-img img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+/*top bar CSS ends here*/
+/*overview-body CSS starts here*/
+.overview-body .block{
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}	
+.overview-body .block span{
+	font-size: 20px;
+	display: inline-block;
+	height: 55px;
+	width: 55px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+}
+.overview-body .block .media-heading
+	{
+		font-family: "Inter-UI-Regular";
+		color: 	#333333;
+}
+.overview-body .block .media-body{
+	padding-left: 	10px;
+}
+.overview-body .block .media-body p{
+	margin-bottom: 0;
+}
+.property-num .block span{	
+	background-color: #15bc7c;
+}
+.user-num .block span{	
+	background-color: #f87909;
+}
+.custom-table .user-type{
+	color: #333333;
+	font-size: 18px;
+	text-transform: capitalize;
+}
+.custom-table .payment-total{
+	text-align: right;
+}
+.custom-table .payment-total .payments-title{
+	font-family: "Inter-UI-Regular";
+	color: #333;
+}
+.danger-status{
+	color: #e24141;
+}
+.payments-header{
+	background-color: #fafafa;
+	padding: 20px 20px 10px;
+	border: 1px solid #ddd;
+	border-bottom: 0px; 
+}
+.payments-header .view-payments{
+	display: flex;
+	align-items: center;
+}
+.payments-header .view-payments .form-group{
+	margin-bottom: 0px;
+}
+.payments-header .view-payments .form-group .form-control{
+	text-transform: capitalize;
+}
+.payments{
+	margin-top: 30px;
+}
+.payments-details h4{
+	margin-top: 0;
+}
+.payments-header .view-payments span{
+	padding:7px 15px;
+	border-left: 1px solid #ddd;
+	display:inline-block;
+	margin-left: 15px;
+}
+/*overview-body CSS ends here*/
+/*conversation CSS starts here*/
+.conversation ul li .media .media-left .user-bg{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-color: #ddd;
+	position: relative;
+	display: inline-block;
+}
+.conversation ul li {
+	border-left:0px;
+	border-right:0px;
+	border-radius: 0px !important;
+}
+.conversation ul li .media .media-body .media-heading{
+	text-transform: capitalize;
+}
+.conversation ul li .media .media-left, .conversation ul li .media .media-body, .conversation ul li .media .media-right{
+	vertical-align: middle;
+}
+.conversation ul li .media .media-right a{
+	color: #5e666e;
+}
+.conversation ul li .media .media-right .badge{
+	height: 20px;
+	width: 20px;
+	display: flex;align-items: center;
+	justify-content: center;
+	background-color: #ffcd04;
+	color: #5e666e;
+}
+.conversation ul li.active-user .media-left .badge{
+	position: absolute;
+	height: 10px;
+	width: 10px;
+	background-color: #15bc7c;
+	display: block;
+	padding: 0;
+	bottom: 2px;
+    right: 5px;
+}
+.conversation .scroll{
+	max-height: 100%;
+	overflow-y: auto;
+	border:1px solid #ddd; 
+}
+.conversation-header{
+	padding: 15px;
+}
+.conversation-header span{
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	background-color: #fbae09;
+	justify-content: center;
+	margin-right: 15px;
+}
+/*conversation CSS ends here*/
+/*Property CSS starts here*/
+.prop-types{
+	margin-bottom: 30px;
+	
+}
+.prop-types .label{
+    text-transform: uppercase;
+    height: 50px;
+    font-size: 30px;
+    width: 50px;
+   justify-content: center;
+   padding: 0;
+}
+.prop-types .media .media-heading{
+	text-transform: capitalize;
+	margin-bottom: 0;
+}
+.prop-types .media .media-right .fa{
+	font-size: 24px;
+}
+.prop-types .media{
+	border-bottom: 1px solid #d2dbe4;
+}
+.prop-types .prop-header .media-right a{
+	color: #586b8d !important;
+}
+.prop-types .list-group{
+	margin-bottom: 0;
+}
+.prop-types .list-group	.list-group-item .media-left span{
+	width: 35px;
+    height: 35px;
+	background-color: #e3e9f0;
+	justify-content: center;
+
+}
+.prop-types .list-group	.list-group-item .media-right{
+	white-space: nowrap;
+}
+.prop-types .list-group .media{
+	background-color: #f3f7fb;
+	padding: 10px;
+	border-radius: 10px;
+	color: #9fabb7;
+}
+.prop-types .list-group .list-group-item{
+	border: 0; 
+}
+.prop-types .prop-tile{
+	border:1px solid #ddd;
+	border-radius: 3px;
+	overflow: hidden;
+	box-shadow: 0px 8px 15px #ddd;
+}
+.prop-header{
+	background-color: #fcfcfc;
+	padding: 15px;
+}
+.content-header-left a {
+    width: 40px;
+    height: 40px;
+    background-color: #d8dfe5;
+    color: #89939c;
+    justify-content: center;
+    margin-right: 20px;	
+}
+.content-header-left .tittle {
+	font-size: 18px;
+}
+.content-header-left {
+	text-transform: capitalize;
+}
+.white-btn {
+	background-color: #fff ;
+	border: 1px solid #d2dbe4;
+	padding: 10px 15px;
+    border-radius: 37px;
+	font-size: 16px; 
+	color: #333333 !important;
+}
+.white-btn:hover {
+	border: 1px solid #fff !important;
+	color: #fff !important;
+	background-color: #15bc7c !important;
+}
+.general-information, .payment-plan {
+	background-color: #fff;
+	border:1px solid #d2dbe4;
+	float: left;
+	width: 100%;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+}
+.general-information-desc {
+	background-color: #fcfcfc;
+	padding: 30px 30px 20px;
+	border-bottom: 1px solid #d2dbe4;
+	margin-bottom: 30px;
+}
+.general-information-desc p,.payment-plan p {
+	color: #bfbfbf;
+}
+.general-information-forms .form-control {
+	 height: 40px;
+	 border-radius: 50px;
+	 
+	 font-size: 14px; 
+}
+.general-information-forms .input-group-addon:first-child
+	{
+		border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+	}
+.general-information-forms .input-group-addon:last-child
+	{
+		border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+	}
+.payment-plan {
+	padding: 30px 15px 20px;
+}
+.payment-plan-btn {
+	text-align: right;
+}
+.payment-plan-btn .purple-btn {
+    padding: 10px 15px;
+    border-radius: 37px;
+    font-size: 16px;   
+}
+.purple-btn{
+	background-color: #586b8d !important;
+    color: #fff !important;
+}
+.purple-btn:hover{
+	color: #586b8d !important;
+	background-color: #fff !important;
+	border-color: #586b8d;
+}
+.general-information-forms{
+	position: relative;
+}
+.general-information-forms .input-label{
+	position: absolute;
+}
+/* .payment-plan-btn .plan-btn:hover {
+	border: 1px solid #15bc7c;
+	background-color: #fff !important;
+	color: #15bc7c!important;
+}  */
+/*Property CSS ends here*/
+/*content CSS ends here*/

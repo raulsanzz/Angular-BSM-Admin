@@ -1,0 +1,71 @@
+
+
+
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="left-bar">
+        <div class="menu-logo">
+           
+          <span>{{ this.buildingName}}</span>
+      </div>
+      <nav class="nav">
+          <div class="menu-title">
+              <h4>Menu</h4>
+          </div>
+          <ul>
+            <li>
+              <a><span><i class="fa fa-home"></i></span> Overview</a>
+            </li>
+            <li>
+              <a routerLink="/admin/property"><span><i class="fa fa-building"></i></span> Property</a>
+            </li>
+            <li>
+              <a routerLink="/admin/payments" ><span><i class="fa fa-users"></i></span> Payments</a>
+            </li>
+            <li>
+              <a routerLink="/admin/conservation"><span><i class="fa fa-credit-card-alt"></i></span> Conservation</a>
+            </li>
+            <li>
+                <a routerLink="/admin/usermanagement"><span><i class="fa fa-credit-card-alt"></i></span> User Management</a>
+              </li>
+              <li>
+                  <a routerLink="/admin/staffmanagement"><span><i class="fa fa-credit-card-alt"></i></span> Staff Management</a>
+                </li>
+              <li>
+                  <a routerLink="/admin/gallery"><span><i class="fa fa-picture-o"></i></span> Gallery</a>
+              </li>
+              <li>
+                <a routerLink="/admin/settings"><span><i class="fa fa-picture-o"></i></span> Settings</a>
+            </li>
+
+          </ul>
+        </nav>
+      </aside>
+      <article class="content">
+          <!--top_bar HTML starts here-->
+          <div class="top_bar">
+              <h3 class="page-title">Properties</h3>
+
+              <div class="dropdown-topbar">
+                  <a class="notificaton"><i class="fa fa-bell"></i> <span class="badge">50</span></a>
+                  <ul class="dropdown cursorrr">
+                      
+                          <a class="dropdown-toggle" data-toggle="dropdown"><span class="user-img"><img src="../../../assets/images/dashboard-admin.png" alt="user" /></span> <span> <i class="fa fa-chevron-down"></i></span></a>
+                          <ul class="dropdown-menu">
+                              <li (click)="logout()">
+                                  <a> <i class="fa fa-sign-out"></i> log out</a>
+                              </li>
+                          
+                          </ul>
+                  </ul>
+              </div>
+          </div>
+          <div class="container">
+              <router-outlet></router-outlet>
+          </div>
+      </article> 
+
+    </div>
+  </div>
+</div>

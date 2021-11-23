@@ -1,0 +1,234 @@
+<div class="container">
+  <div class="rowone">
+    <div class="row">
+      <div class="col-md-6">
+
+        <span (click)="goBack()" class="circle">
+          <span><i class="fa fa-angle-left mappp" aria-hidden="true"></i></span>
+        </span>
+
+        <div class="text-pro">
+          <p class=" pro-paragraph"> Installments </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- pageLoader -->
+  <div *ngIf=pageLoader class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-10">
+      <div class="formrowcol2">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="one">
+              <span class="bd">Payment Plan</span>
+            </div>
+            <div class="second">
+              <span> Create or Edit payment plan of new property</span>
+            </div>
+          </div>
+          <div class="col-md-3 pull-right">
+            <span class="arrow">
+              {{price}}
+            </span>
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="formdivthree">
+        <form [formGroup]="paymentForm" class="adjus" action="">
+
+          <div class="row formpad">
+            <div class="col-md-6">
+              <div class="form-group">
+                <p class="error-message-dt"
+                  *ngIf="paymentForm.controls['name'].touched && paymentForm.controls['name'].errors?.required">
+                  Fee Type is Required</p>
+
+                <input type="text" formControlName="name" class="form-control" id="inputEmail4" placeholder="Fee Type">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <input type="text" (keyup)="percentageValue($event.target.value)" class="form-control"
+                  formControlName="percentage" placeholder="Percentage">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <!-- <p class="error-message-dt" -->
+              <!-- *ngIf="paymentForm.controls['amount'].touched && paymentForm.controls['amount'].errors?.required"> -->
+              <!-- Amount Required</p> -->
+
+              <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text round2">Rs.</div>
+                </div>
+
+                <input type="text" formControlName="amount" disabled class="form-control" placeholder="Amount">
+
+
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <p class="error-message-dt"
+                  *ngIf="paymentForm.controls['occurrence'].touched && paymentForm.controls['occurrence'].errors?.required">
+                  Occurrence Required</p>
+                <p class="error-message-dt" *ngIf="paymentForm.controls['occurrence'].errors?.pattern">
+                  Only Number Allowed</p>
+                <input type="text" formControlName="occurrence" maxlength="3" class="form-control"
+                  placeholder="Occurrence">
+              </div>
+
+            </div>
+    
+            <div class="col-md-3">
+              <div class="form-group">
+                <p class="error-message-dt"
+                  *ngIf="paymentForm.controls['interval'].touched && paymentForm.controls['interval'].errors?.required">
+                  Interval Required</p>
+                <p class="error-message-dt" *ngIf="paymentForm.controls['interval'].errors?.pattern">
+                  Only Number Allowed</p>
+                <input type="text" formControlName="interval" class="form-control" placeholder="Interval">
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <p class="error-message-dt"
+                  *ngIf="paymentForm.controls['intervalType'].touched && paymentForm.controls['intervalType'].errors?.required">
+                  Interval Type is Required</p>
+                <select class="form-control" formControlName="intervalType">
+                  <option value=""> Interval Type</option>
+                  <option value="Days">Days</option>
+                  <option value="Months">Months</option>
+                  <option value="years">years</option>
+                  <!-- <option *ngIf="installmentList.length == 0" value="N/A">N/A</option> -->
+                </select>
+              </div>
+            </div>
+
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <p class="error-message-dt"
+                  *ngIf="paymentForm.controls['paymentType'].touched && paymentForm.controls['paymentType'].errors?.required">
+                  Payment Type is Required</p>
+                <select class="form-control" formControlName="paymentType">
+                  <option value=""> Payment Type</option>
+                  <option *ngFor="let data of attributeList" value="{{data?.id}}"> {{data?.status}}</option>
+                  <!-- <option value="front">Front</option>
+                  <option value="sunset">Sunset</option>
+                  <option value=corner>Corner</option> -->
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <p class="error-message-dt"
+                  *ngIf="paymentForm.controls['description'].touched && paymentForm.controls['description'].errors?.required">
+                  Description Required</p>
+                <input type="text" formControlName="description" class="form-control" placeholder="Enter Description">
+              </div>
+            </div>
+            <div class="col-md-12 text-right">
+              <span class="btnmrg"><button (click)="cancelButton()" type="button"
+                  class="btn  defsize">Cancel</button></span>
+              <span class="btnmrg"><button type="button" [ladda]="btnLoader" *ngIf="!installmentId"
+                  (click)="savePaymentPlan(paymentForm.value, paymentForm.valid)"
+                  class="btn btn-primary prisize">Save</button></span>
+              <span class="btnmrg"><button type="button" [ladda]="btnLoader" *ngIf="installmentId"
+                  (click)="updatePaymentPlan(paymentForm.value, paymentForm.valid)"
+                  class="btn btn-primary prisize">Update</button></span>
+
+            </div>
+
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-10">
+      <div class="formrowcol2">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="one">
+              <span class="bd">Installment Plan</span>
+            </div>
+            <div class="second">
+              <span> Create or Edit payment plan of new property</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <span class="arrow">
+
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="formdivthreee">
+        <table class="table">
+
+          <tbody>
+            <tr *ngFor="let data of installmentList">
+
+              <td>
+                <div class="media">
+                  <div class="media-left leftss">
+                    <div class="d-flex justify-content-center">
+                      <span class="left-sp">{{data?.installmentNumber}}</span>
+
+                    </div>
+                  </div>
+                  <div class="media-body">
+
+                    <div class="details">
+                      <span>{{data?.name}}</span>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <!-- <td>
+                <div class="mainbg2">
+                  <span>{{data?.paymentType}}</span>
+                </div>
+              </td> -->
+              <td>
+                <div class="mainbg2">
+                  <span>Rs. {{data?.amount}} * {{data.occurrence}}</span>
+                </div>
+              </td>
+              <td>
+                <div class="mainbg2">
+                  <span>Rs. {{+data?.amount * +data.occurrence}} </span>
+                </div>
+              </td>
+              <td>
+                <div class="mainbg2">
+
+
+                  <i class="fa fa-pencil-square-o" (click)="getSingleInstallment(data)" aria-hidden="true"></i>
+                </div>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+  <app-no-record-found [loadingComponent]="installmentList.length === 0 && !pageLoader"></app-no-record-found>
+</div>

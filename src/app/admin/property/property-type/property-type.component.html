@@ -1,0 +1,171 @@
+
+<div *ngIf="!unitDetailsView">
+  <div class="wrapper">
+    <div class="container">
+      <div class="rowone">
+        <div class="row">
+          <div class="col-md-6">
+  
+            <span (click)="goBack()" class="circle">
+              <span><i class="fa fa-angle-left mappp" aria-hidden="true"></i></span>
+            </span>
+  
+            <div class="text-pro">
+              <p class=" pro-paragraph">{{propertyDetails?.propertyName}}</p>
+            </div>
+  
+          </div>
+          <div class="col-md-6 text-right">
+            <button type="button" class="btn btn-primary prisize" data-toggle="modal" data-target="#myModal">+ Add Unit</button>
+  
+          </div>
+        </div>
+        
+      </div>
+  
+   
+      <div class="formrowcol2">
+        <form action="">
+          <div class="row">
+  
+            <div class="col-md-4">
+  
+              <div class="form-group">
+               
+             
+                  <input type="text" class="form-control" (keyup.enter)="searchByName($event.target.value)" placeholder="Search">
+                  <!-- <span class="searchicon"><i class="fa fa-search" aria-hidden="true"></i></span> -->
+                  
+              </div>
+            </div>
+             <div class="col-md-5">
+  
+            </div>
+            <div class="col-md-3 pull-right">
+              <div class="form-group">
+  
+                <select (change)="searchByFloor($event.target.value)" class="form-control" id="">
+                    <option value="{{floors}}">All Floors</option>
+                    <option *ngFor="let floors of Floor"  value="{{floors}}">{{floors}}</option>    
+                </select>
+              </div>
+            </div>
+  
+          </div> 
+        </form>
+  
+      </div>
+
+            <!-- pageLoader -->
+             <div *ngIf=pageLoader class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+              </div>   
+  
+      <div class="rowtab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">UNIT#</th>
+                    <th scope="col">FLOOR</th>
+                    <th scope="col">BOOKED BY</th>
+                    <th scope="col">AMOUNT PAID</th>
+                    <th scope="col">ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let units of unitListFiltered">
+                    <td>{{units?.name}}</td>
+                    <td>{{units?.floor}}</td>
+                    <td>
+                      {{units?.booking?.customer?.username}}
+                    </td>
+                    <td *ngIf="units?.paidAmount>0">
+                     
+                      {{units?.paidAmount}}
+                    </td>
+                    <td *ngIf="units?.paidAmount==0">
+                     
+                      <span>--</span>
+                    </td>
+                    <td>
+                      <span><i (click)="getSingleUnit(units)" class="fa fa-eye" aria-hidden="true"></i></span>
+                    </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  
+     
+  
+    </div>
+
+
+  </div>
+
+ 
+</div>
+ <!-- The Modal -->
+ <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add units</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form [formGroup]="unitForm">
+            <div class="row">
+  
+              <div class="col-md-12">
+                <div class="form-group">
+                  <select class="form-control" formControlName="floor">
+                 
+                   <option *ngFor="let floors of Floor" value="{{floors}}">{{floors}}</option>             
+                   
+                  </select>
+                 
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <p class="error-message-dt"
+                  *ngIf="unitForm.controls['name'].touched && unitForm.controls['name'].errors?.required">
+                  Floors Required</p>
+                <p class="error-message-dt" *ngIf="unitForm.controls['name'].errors?.pattern">
+                  Only Number Allowed</p>
+                  <input type="text" formControlName="name" class="form-control" placeholder="Number of units">
+                </div>
+              </div>
+           
+  
+  
+            </div>
+          </form>
+          
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" id="closePlanPopup" (click)="closePopUp()" class="btn defsize" data-dismiss="modal">Cancel</button>
+          <button type="button" [ladda]="btnLoader" (click)="saveUnits(unitForm.value, unitForm.valid)"
+            class="btn btn-primary prisize">Save</button>
+  
+        </div>
+  
+      </div>
+    </div>
+  </div>
+<app-unit-detail [unitInfo]="unitInfo"  *ngIf="unitDetailsView"></app-unit-detail>

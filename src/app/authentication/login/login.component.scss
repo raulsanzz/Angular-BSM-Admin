@@ -1,0 +1,240 @@
+
+
+.dark-text{
+	color: #333333;
+}
+.media-middle .media-left, .media-middle .media-body, .media-middle .media-right{
+	vertical-align: middle;
+}
+.flex{
+	display: flex;
+	align-items: center;
+
+}
+.label-success{
+	color: #15bc7c;
+	background-color: #ebfbf5;
+	text-transform: uppercase;
+	padding: 5px;
+}
+.label-danger{
+	color: #e24141;
+	background-color: #fef0f0;
+	text-transform: uppercase;
+	padding: 5px;
+}
+.label-warning{
+	color: #fbae09;
+	background-color: #fff7e6;
+	text-transform: uppercase;
+	padding: 5px;
+}
+.label-purpel{
+	background-color: #eaddf3;
+	color: #8222c4;
+}
+.bg-white{
+	background-color: #fff;
+}
+.circle{
+	border-radius: 50%;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	vertical-align: middle;
+}
+h1, h2, h3, h4{
+	font-weight: inherit;
+	margin-top: 0px;
+}
+.small-img{
+	width: 50px;
+	height: 50px;
+}
+a, .btn {
+	transition: all 0.3s ease;
+}
+a:focus{
+	text-decoration: none;
+}
+.round-button{
+	border-radius: 30px;
+}
+.green-button{
+	background-color: #15bc7c;
+	// color: #fff !important;
+	text-transform: capitalize;
+	width: 100%;
+}
+.green-button:hover{
+	background-color: #fff;
+	border-color: #15bc7c;
+	color: #15bc7c;
+}
+.content-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 20px;
+    border-bottom: 2px solid #d2dbe4;
+    margin-bottom: 40px;
+
+}
+.content-header .content-header-title{
+	margin: 0;
+}
+.content-header a{
+    padding: 10px 15px;
+    border-radius: 37px;
+    font-size: 16px;
+}
+.green-btn{
+	background-color: #15bc7c;
+	color: #fff !important;
+}
+.green-btn:hover{
+	background-color: #fff;
+	color: #15bc7c;
+	border: 1px solid #15bc7c;
+}
+
+body{
+	color: #5e666e;
+	background-color: #e8ecf0;
+}
+
+/*main-content CC starts here*/
+.main-content{
+	font-family: "Inter-UI-Medium";
+	background-color: #e8ecf0;
+	height: 100%;
+	padding: 50px 100px;
+    display: table;
+   	width: 100%
+}
+.main-content .container-fluid{
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+.main-content .page-header{
+	font-size: 24px;
+}
+.main-content .page-header a{
+	color: #727b8c;
+	font-size: 26px;
+}
+.main-content .page-header a:hover{
+	color: #15bc7c;
+}
+.main-content .page-header h1{
+	color: #15bc7c;
+	margin-top: 0;
+	margin-bottom:20px; 
+	font-size: 50px;
+}
+.tile .thumbnail{
+	min-height: 280px;
+	display: flex;
+	align-items: center;
+	justify-content: center; 
+}
+.tile .thumbnail:hover{
+	border-color: #15bc7c; 
+}
+.tile a{
+		color: #333333;
+	}
+.tile .thumbnail img{
+	display: inline-block;
+}
+.tile .thumbnail .thumbnail-title{
+	margin-top: 30px; 
+}
+/*main-content CC ends here*/
+
+/*log-in CCS ends here*/
+.log-in{
+	background-color: #fff;
+	padding: 50px;
+	width: 500px;
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+}
+.log-in .form-header {
+	color: #8499ad;
+	font-size: 18px;
+}
+.log-in .form-header-title{
+	color: #333333;
+}
+.log-in .form-body{
+	margin: 30px 0px;
+}
+.log-in .form-control{
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px;
+	border-radius:30px;
+}
+.log-in .form-footer{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.log-in .form-footer .back-button{
+	color: #30394a;
+	text-transform: capitalize;
+	transition: all 0s ease;
+
+}
+
+.log-in .form-footer .back-button span{
+	transition: all 0.3s ease;
+}
+.log-in .form-footer .back-button:hover span{
+	padding-right: 5px;
+}
+.icon_input {
+	position: relative;
+}
+.icon_input .form-control{
+	padding-left: 45px;
+}
+.icon_input .form-control:focus{
+	box-shadow: inset 35px 0px 0px 0px #eee;
+	border-color: #eee;
+    border: 2px solid #eee;
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;}
+
+
+.icon_input span{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 40px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bfc7cf;
+    font-size: 20px;
+}
+.log-in .form-footer .btn{
+	padding: 7px 26px;
+}
+.form-group {
+    margin-top: 2rem !important;
+}
+.ladda-button, .ladda-button .ladda-spinner, .ladda-button .ladda-label {
+	transition: none !important;
+}
+.ladda-button[disabled], .ladda-button[disabled]:hover, .ladda-button[data-loading], .ladda-button[data-loading]:hover {
+	cursor: default;
+	color: #fff !important;
+	background-color: #16bc7c !important;
+  border: 1px solid #16bc7c;  
+  }

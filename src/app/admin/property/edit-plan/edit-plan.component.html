@@ -1,0 +1,92 @@
+
+<div class="container">
+  <div class="rowone">
+    <div class="row">
+        <div class="col-md-6">
+         
+            <span routerLink="../" class="circle">
+              <span><i class="fa fa-angle-left mappp" aria-hidden="true"></i></span>
+            </span>
+          
+            <div class="text-pro">
+                <p class=" pro-paragraph"> Edit Plan </p>
+              </div>
+            
+        </div>
+        <div class="col-md-6 text-right">
+            <span class="btnmrg"><button routerLink="../" type="button" class="btn btn-default defsize">Cancel</button></span>
+          <span class="btnmrg"><button type="button" (click)="updatePlan(PlanForm.value)"  class="btn btn-primary prisize">Save Changes</button></span>
+         
+          </div>
+      </div>
+</div>
+<div class="row">
+              
+  <div class="col-md-10">
+      <div class="formrowcol2">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="one">
+              <span class="bd">Payment Plan</span>
+            </div>
+            <div class="second">
+             <span> Create or Edit payment plan of new property</span>
+            </div>
+      </div>
+    
+    </div>
+    
+
+    </div>
+
+    <div class="formdivthree">
+      <form [formGroup]="PlanForm" class="adjus" action="">
+          
+              <div class="row formpad">
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <input type="text" formControlName="name" class="form-control" id="inputEmail4" placeholder="Booking Fee">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group mb-2">
+                      <div class="input-group-prepend">
+                          <div class="input-group-text round2">Rs.</div>
+                        </div>
+                        
+                    <input type="text" formControlName="amount" formC class="form-control" id="inlineFormInputGroup" placeholder="Enter Property Area">
+                    
+                 
+                  </div>
+                  </div>
+                  <div class="col-md-2">
+                      <div class="input-group mb-3"  >
+                          
+                          <select class="custom-select red" formControlName="occurrence" id="inputGroupSelect01">
+                            <option selected>1</option>
+                            <option value="1">2</option>
+                            <option value="2">3</option>
+                            <option value="3">4</option>
+                          </select>
+                        </div>
+
+              </div>
+              <div class="col-md-12">
+                  <div class="form-group">
+                      <input type="text" formControlName="description" class="form-control"placeholder="Enter Discription (Optional)">
+                  </div>
+              </div>
+              <div class="col-md-12">
+                <span>
+                    <button type="button" class="btn btn-primary paymentt">+ Add Another Payment</button>
+                </span>
+              </div>
+            
+           
+      </div>
+    </form>
+  </div>
+
+  </div>
+</div>
+</div>

@@ -1,0 +1,340 @@
+<div *ngIf="!showInstallments">
+  <div class="container">
+    <div class="rowone">
+      <div class="row">
+        <div class="col-md-6">
+
+          <span (click)="goBack()" class="circle">
+            <span><i class="fa fa-angle-left mappp" aria-hidden="true"></i></span>
+          </span>
+
+          <div class="text-pro">
+            <p class=" pro-paragraph"> Properties </p>
+          </div>
+
+        </div>
+        <div class="col-md-6 text-right">
+          <!-- <span class="btnmrg"><button routerLink="../" type="button" class="btn btn-default defsize">Save as
+              Draft</button></span> -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="formdivtwo">
+      
+      <div class="row">
+
+        <div class="col-md-10">
+          <div class="formrowcol">
+            <div class="one">
+              <span class="bd">General Information</span>
+            </div>
+            <div class="second">
+              <span> Please Provide details of new Property </span>
+            </div>
+          </div>
+          <div class="formdivthree">
+            <form [formGroup]="propertyForm" class="adjus">
+
+              <div class="row formpad">
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <p class="error-message-dt" *ngIf="propertyForm.controls['name'].touched && propertyForm.controls['name'].errors?.required">
+                          Property Name Required</p>
+                        <p class="error-message-dt" *ngIf="propertyForm.controls['name'].errors?.pattern">
+                          Only Characters Allowed</p>
+                    <input type="text" formControlName="name" class="form-control" placeholder="Title">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <p class="error-message-dt"
+                      *ngIf="propertyForm.controls['type'].touched && propertyForm.controls['type'].errors?.required">
+                      Property Type Required</p>
+                    <p class="error-message-dt" *ngIf="propertyForm.controls['type'].errors?.pattern">
+                      Only Characters Allowed</p>
+                    <input type="text" formControlName="type" class="form-control" maxlength="25" placeholder="Type">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <p class="error-message-dt"
+                    *ngIf="propertyForm.controls['area'].touched && propertyForm.controls['area'].errors?.required">
+                    Area Required</p>
+                  <p class="error-message-dt" *ngIf="propertyForm.controls['area'].errors?.pattern">
+                    Only Numbers Allowed</p>
+                  <div class="input-group mb-2">
+
+                    <input type="text" formControlName="area" class="form-control" id="inlineFormInputGroup" maxlength="14"
+                      placeholder="Enter Property Area">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text round">Sq.Ft</div>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                   
+                  <div class="form-group">
+
+                    <!-- <select class="custom-select red" formControlName="floor" id="inputGroupSelect01">
+                      <option *ngFor="let floornumber of Floor" selected value="{{floornumber}}">{{floornumber?.floor}}</option>
+        
+                    </select> -->
+
+                    <ng-multiselect-dropdown [data]="Floor" formControlName="floors" [ngStyle]="{'border-radius': '30px'}" [(ngModel)]="floors"
+                    
+    [settings]="dropdownSettings" 
+    [placeholder]="'Select Floor'"
+    (onSelect)="onItemSelect($event)" 
+    (onDeSelect)="OnItemDeSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    (onDeSelectAll)="onDeSelectAll($event)">
+                 
+  </ng-multiselect-dropdown>
+                
+                    
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                    <span class="btnmrg"><button (click)="goBack()" type="button" class="btn btn-default defsize">Cancel</button></span>
+                  <span class="btnmrg"><button type="button" [ladda]="btnLoader7" *ngIf="propertyDetails && !propertyDetails.id"
+                      (click)="savePropertyType(propertyForm.value, propertyForm.valid)"
+                      class="btn btn-primary prisize">Save & Publish</button></span>
+                      <span class="btnmrg"><button type="button" [ladda]="btnLoader1" *ngIf="propertyDetails && propertyDetails.id"
+                        (click)="updatePropertyType(propertyForm.value, propertyForm.valid)"
+                        class="btn btn-primary prisize" style="margin-left: -24px;">Update & Publish</button></span>
+          
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    <div *ngIf="propertyDetails?.id">
+      <div class="row">
+
+        <div class="col-md-10">
+          <div class="formrowcol2">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="one">
+                  <span class="bd">Payment Plan</span>
+                </div>
+                <div class="second">
+                  <span> Create or Edit payment plan of new property</span>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <span class="arrow">
+                  <label class="switch">
+
+                    <button type="button" class="btn btn-primary prisize" data-toggle="modal" data-target="#myModal"><i
+                        class="fa fa-pencil siz" aria-hidden="true"></i>
+                      Create Plan</button>
+                 
+                  </label>
+                </span>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="formdivthreee">
+            <table class="table">
+
+              <tbody>
+                <tr *ngFor="let data of allPlans">
+
+                  <td>
+                    <div class="media">
+                      <div class="media-left leftss">
+                        <div class="d-flex justify-content-center">
+                          <span class="left-sp">1</span>
+
+                        </div>
+                      </div>
+                      <div class="media-body">
+
+                        <div class="details">
+                          <span>{{data?.name}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mainbg2">
+                      <span>{{data?.totalPrice}}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mainbg2">
+
+                      <div class="dropdown">
+                        <span class="ellipse-span dropdown-toggle" data-toggle="dropdown"
+                          style="padding: 12px 16px 8px 16px;"> <i class="fa fa-ellipsis-v"></i></span>
+                        <ul class="dropdown-menu">
+                          <li (click)="onClickEditPlan(data)" data-toggle="modal" data-target="#myModal"><a >Edit</a>
+                          </li>
+                          <!-- <li><a>Delete</a></li> -->
+                          <li (click)="createInstallment(data)"><a>Installment</a></li>
+                        </ul>
+                      </div>
+
+                    </div>
+                  </td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+      <div class="row" *ngIf="installmentList.length >0">
+
+        <div class="col-md-10">
+          <div class="formrowcol2">
+            <div class="row">
+              <div class="col-md-9">
+                <div class="one">
+                  <span class="bd">Installment Plan</span>
+                </div>
+                <div class="second">
+                  <span> Create or Edit Installments of the plan.</span>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <span class="arrow">
+
+                </span>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="formdivthreee">
+            <table class="table">
+
+              <tbody>
+                <tr *ngFor="let data of installmentList">
+
+                  <td>
+                    <div class="media">
+                      <div class="media-left leftss">
+                        <div class="d-flex justify-content-center">
+                          <span class="left-sp">{{data?.installmentNumber}}</span>
+
+                        </div>
+                      </div>
+                      <div class="media-body">
+
+                        <div class="details">
+                          <span>{{data?.name}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mainbg2">
+                      <span>Rs. {{data?.amount}} * {{data?.occurrence}}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="mainbg2">
+                      <span>Rs. {{+data?.amount * +data?.occurrence}} </span>
+                    </div>
+                  </td>
+
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Create Plan</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="planForm">
+          <div class="row">
+
+            <div class="col-md-12">
+              <div class="form-group">
+                  
+                <p class="error-message-dt" *ngIf="planForm.controls['name'].touched && planForm.controls['name'].errors?.required">Name is required</p>
+                <p class="error-message-dt" *ngIf="planForm.controls['name'].errors?.pattern">
+                    Only Characters Allowed</p>
+                <input type="text" formControlName="name" class="form-control" placeholder="Name">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                  <p class="error-message-dt" *ngIf="planForm.controls['totalPrice'].touched && planForm.controls['totalPrice'].errors?.required">Price is required</p>
+                  <p class="error-message-dt" *ngIf="planForm.controls['totalPrice'].errors?.pattern">
+                      Only Numbers Allowed</p>
+                  <input type="text" formControlName="totalPrice" class="form-control" maxlength="9" placeholder="Total Price">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <span class="tog">Status</span>
+              <label class="switch">
+
+                <input formControlName="status" type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" (click)="cancelButton()" id="closePlanPopup" class="btn defsize" data-dismiss="modal">Cancel</button>
+        <button type="button" [ladda]="btnLoader" *ngIf="!planId" (click)="savePlan(planForm.value, planForm.valid)"
+          class="btn btn-primary prisize">Save</button>
+        <button type="button" [ladda]="btnLoader" *ngIf="planId" (click)="onClickUpdate(planForm.value, planForm.valid)"
+          class="btn btn-primary prisize">Update</button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<app-create-plan *ngIf="showInstallments" [planDetails]="planDetails"></app-create-plan>

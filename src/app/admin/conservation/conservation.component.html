@@ -1,0 +1,143 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="mainleft">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="leftcol">
+            
+            <button
+              class="btn btn-success text-center btnmargin"
+              type="button"
+              (click)="getAllClients()"
+            >
+              See All Customers
+            </button>
+            
+            <form action="">
+              <div class="form-group has-search">
+                <a
+                  ><span
+                    class="fa fa-search form-control-feedback inputSearchIcon"
+                  ></span
+                ></a>
+                <input
+                  type="text"
+                  class="form-control inputSearchIcon"
+                  placeholder="Search"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="row">
+            <div
+              class="col-md-12"
+              *ngFor="let customer of customers"
+            >
+              <div class="colleft2">
+                <div class="media">
+                  <div class="media-left medleft">
+                    <img
+                      class="clientImg"
+                      [src]="getImage(customer.imageid)"
+                    />
+                  </div>
+                  <div class="media-body clientname">
+                    <h5 class="media-heading"><b>{{customer.username}}</b></h5>
+                    <span class="badge">5</span>
+                    <p class="msgtext">Thanks for that</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" mainright ">
+      <div class="row margin">
+        <div class="col-md-12">
+          <div class="rightcol margin_left">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="one">
+                  <span class="bd">General Information</span>
+                </div>
+                <div class="second">
+                  <span> Please Provide details of new Property </span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <button type="button" class="btn btn-default btndef pull-right">
+                  Block
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 margin_left">
+            <p class="text-center font-weight-light">Monday, 23 July</p>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="media">
+                  <img
+                    class="align-self-start mr-3"
+                    src="../../../assets/images/tiger.jpg"
+                    alt="Generic placeholder image"
+                  />
+                  <div class="media-body">
+                    <p class="bg_comment">Hello Seemab</p>
+                    <p class="bg_comment2">
+                      Donec sed odio dui.leo. Crturient montes, nascetur
+                      ridiculus mus.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="media mediaRight">
+                  <div class="media-body bg_comment3 ">
+                    Cras purus odio, vestibulum in vulputate at Cras purus odio,
+                    vestibu
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="media mt-5">
+                  <img
+                    class="align-self-start mr-3"
+                    src="../../../assets/images/tiger.jpg"
+                    alt="Generic placeholder image"
+                  />
+                  <div class="media-body">
+                    <p class="bg_comment4">
+                      Donec sed odio dui.leo. Crturient mus.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form [formGroup]="SendMessageForm">
+            <div class="input-group marginTypeText telegramBg">
+              <div class="input-group-preappend bgPaperClip ">
+                <a href="#" type="button">
+                  <i
+                    class="fa fa-paperclip sizePaper fa-2x"
+                    style="color:#8899b1;"
+                  ></i>
+                </a>
+              </div>
+              <input 
+                type="text" formControlName="message" id="sendmsg" 
+                class="form-control borderNone msg"
+                placeholder="Type Your Message Here..."
+              />
+              <div class="input-group-append bgPaperClip1">
+                  <a (click)="sendmsg()" type="button"> <i class="fa fa-telegram sizePaper1 fa-2x"></i></a>
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+<div *ngIf="!createPropertyView">
+  <div *ngIf="!propertyType">
+    <div class="container">
+      <div class="rowone">
+        <div class="row">
+          <div class="col-md-6">
+
+            <span class="firstsp">{{PropertyList?.length}} Property Types</span>
+          </div>
+          <div class="col-md-6 text-right">
+            <span class="btnmrg"><button type="button" (click)="goCreateView()" class="btn btn-primary prisize">+ New
+                Property Type</button></span>
+
+          </div>
+        </div>
+      </div>
+      <!-- pageLoader -->
+      <div *ngIf=pageLoader class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+      <div class="rollIn">
+        <div class="rowthreee">
+          <div class="row">
+
+            <div class="col-md-4 colmrg" *ngFor="let data of PropertyList.slice()">
+
+              <div class="witdthman">
+                <div class="row borbot">
+                  <div class="col-md-9 padpic">
+                    <div class="main">
+                      <div class="circlefour">
+
+                        <span class="weight">{{data?.name.charAt(0).toUpperCase()}}</span>
+                      </div>
+                      <div class="text-pro">
+                        <p class=" pro-paragraph" style="font-weight:bold;">{{data?.name}}</p>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-3 text-right">
+                    <div class="padpictwo">
+                        <i class="fa fa-pencil-square-o" (click)="getSingleProperty(data)" aria-hidden="true"></i>
+                    
+                    </div>
+
+                  </div>
+                </div>
+                <div>
+                  <div class="row" (click)="getPropertyId(data)">
+
+                    <div class="col-md-12 innerpadone ">
+                      <div class="mainbg">
+                        <div class="circle">
+                          <span><i class="fa fa-map-marker mappp" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="text-pro">
+                          <p class=" pro-paragraph">Type</p>
+                        </div>
+                        <span class="arrow pull-right">
+                          <label class="switch">
+
+
+                            <span>{{data?.type}}</span>
+                          </label>
+                        </span>
+                      </div>
+
+                    </div>
+                    <div class="col-md-12 innerpadtwo ">
+                      <div class="mainbg">
+                        <div class="circletwo">
+                          <span><i class="fa fa-square-o mappp" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="text-pro">
+                          <p class=" pro-paragraph">Area</p>
+                        </div>
+                        <span class="arrow1 pull-right">
+                          <label class="switch">
+
+
+                            <span>{{data?.area}} .ft²</span>
+                          </label>
+                        </span>
+                      </div>
+
+                    </div>
+                    <div class="col-md-12 innerpadthree ">
+                      <div class="mainbg">
+                        <div class="circletwo">
+                          <span><i class="fa fa-certificate mappp" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="text-pro">
+                          <p class=" pro-paragraph">Cost</p>
+                        </div>
+                        <span class="arrow2 pull-right">
+                          <label class="switch">
+
+                            <span *ngIf="data?.plans">{{data?.plans[0]?.totalPrice}}</span>
+                            <span *ngIf="!data?.plans || data?.plans.length == 0">--</span>
+                            <!-- <span *ngIf="data.plans">--</span> -->
+                          </label>
+                        </span>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <app-no-record-found [loadingComponent]="PropertyList.length === 0 && !pageLoader"></app-no-record-found>
+</div>
+
+
+<app-create-property *ngIf="createPropertyView" [propertyDetails]="propertyDetails"></app-create-property>
+<app-property-type [propertyDetails]="propertyDetails" *ngIf="propertyType"></app-property-type>

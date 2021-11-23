@@ -1,0 +1,559 @@
+.navtop {
+    margin-top: 50px;
+}
+
+.tab-content {
+    padding: 5px 0px 25px 0px;
+    ;
+    // margin-top: -20px; 
+}
+
+.firsth {
+    color: #abb4c0;
+}
+
+.second {
+    font-weight: bold;
+}
+
+.favic {
+    color: #8495b4;
+}
+
+.seconnd-row {
+    background: #fff !important;
+}
+
+.borright {
+    background: #fff;
+    padding: 20px 0px 20px 0px;
+    ;
+    margin: 0px;
+}
+
+.bod-font {
+    padding: 10px 0px 10px 20px;
+}
+
+.right-border {
+    border-right: 1px solid #ddd;
+}
+
+.borright2 {
+    background: #fff;
+    padding: 20px 20px 20px 0px;
+
+}
+
+.bg {
+    background: #fff;
+}
+
+.second2 {
+    margin-top: 25px;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #DDD;
+}
+
+.form-group input {
+    border-radius: 30px;
+}
+
+.form-group select {
+    border-radius: 30px;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    border-width: 0;
+    border-bottom: 2px solid #15BC7C;
+
+    // border-bottom:2px solid #3ebe7c !important;
+}
+
+.nav-tabs>li {
+    padding-right: 5px;
+    // background: #fff;
+}
+
+.nav-tabs>li:hover {
+    // padding-right: 5px;
+    background: #fff;
+}
+
+.nav-tabs>li>a {
+    border: none;
+    color: #888888;
+}
+
+
+.nav-tabs>li::after {
+    // border-bottom: 2px solid #15BC7C;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li>a:hover {
+    border: none;
+    background: transparent;
+    // border-bottom: 2px solid #15BC7C;
+}
+
+.nav-tabs>li>a::after {
+
+    background: #4285F4;
+    height: 2px;
+    border-bottom: 2px solid #3ebe7c !important;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: -1px;
+    transition: all 250ms ease 0s;
+    transform: scale(0);
+    border-bottom: 2px solid #15BC7C;
+}
+
+.nav-tabs>li.active>a::after,
+.nav-tabs>li:hover>a::after {
+    transform: scale(1);
+    // border-bottom: 2px solid #15BC7C;
+
+}
+
+.tab-nav>li>a::after {
+    // border-bottom:2px solid #3ebe7c !important;
+    // background: #21527d none repeat scroll 0% 0%;
+    color: #fff;
+}
+
+.tab-pane {
+    padding: 15px 0;
+}
+
+.table td {
+    padding: 20px 0px 11px 10px;
+}
+
+.table tbody tr {
+    background: #fff;
+}
+
+.table {
+    border: 0px 1px 1px 1px solid #ddd;
+}
+
+.table thead th {
+    background: #fafafa;
+    color: #969696;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+
+.circletwo span {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 1px 25px 10px 7px;
+    // color: #ffffff;
+    // color: #fff;
+}
+
+.circletwo {
+    display: inline;
+    // padding-left: 20px;
+}
+
+.pro-paragraph {
+    // color: #ffffff;
+    margin-left: 15px;
+    color: #333333;
+    font-weight: normal !important;
+
+
+}
+
+.text-pro {
+    display: inline-block;
+}
+
+.lbelfirst {
+    background: #beecdc;
+    color: #3ebe7c;
+
+}
+
+.third3 {
+    color: #3ebe7c;
+}
+
+.stybtn {
+    background: #fff;
+    border: 1px solid #f3f3f3;
+    color: #7c848d;
+    border-radius: 30px;
+}
+
+.stybtn2 {
+    background: #fff;
+    border: 1px solid #f3f3f3;
+    color: #e24141;
+    border-radius: 30px;
+}
+
+.stybtn3 {
+    background: #e7f8f2;
+    color: #3ebe7c;
+    border: 1px solid #f3f3f3;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.prisize {
+    border-radius: 30px !important;
+    background: #15bc7c !important;
+    border: 1px solid #15BC7C !important;
+
+}
+
+.prisize:hover {
+    background: #fff !important;
+    color: #15BC7C !important;
+    border: 1px solid #15BC7C !important;
+}
+
+.defsize {
+    border-radius: 30px;
+    background: #fff;
+    border: 1px solid #fff;
+}
+
+.defsize:hover {
+    background: #e8ecf0;
+    color: #fff;
+    ;
+    border: 1px solid #fff;
+}
+
+.defsize {
+    border-radius: 30px;
+    background: #e8ecf0;
+    // box-shadow: inset 0px 0px  5px #15BC7C;
+
+}
+
+.defsize:hover {
+    background: #fff;
+    box-shadow: inset 0px 0px 5px #15BC7C;
+    color: #15BC7C;
+
+}
+
+
+.bodytwo {
+    padding: 0px;
+}
+
+.arrow1 {
+    display: inline-block;
+    padding: 10px 15px 10px 0px;
+    font-weight: bold;
+}
+
+
+.bd1 {
+    font-weight: bold;
+    padding: 0px 8px;
+}
+
+.formdiv1 {
+    margin-top: 20px;
+    padding: 10px 0px 10px 0px;
+    margin-left: 14px;
+    margin-right: 210px;
+}
+
+.formpad1 {
+    padding: 20px 15px;
+}
+
+.form-control1 {
+    border-radius: 30px;
+}
+
+.switch1 {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+.switch input1 {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.circle span1 {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 2px 12px 10px 11px;
+    // color: #ffffff;
+    background: #ddd;
+}
+
+.circle1 {
+    display: inline;
+    // padding-left: 20px;
+}
+
+.circle1 {
+    cursor: pointer;
+}
+
+.circle span1:hover {
+    color: #15BC7C;
+    background: #fff;
+}
+
+.text-pro {
+    display: inline-block;
+}
+
+.mappp1 {
+    font-size: 17px;
+
+}
+
+.one1 {
+    padding: 10px 0px;
+}
+
+.rowone1 {
+    padding: 20px 10px 20px 00px;
+    border-bottom: 1px solid #ddd;
+}
+
+.formdivtwo1 {
+    margin-top: 20px;
+}
+
+.formdivthree {
+    background: #fff;
+    padding: 20px 20px 5px 20px;
+}
+
+.formrowcol3 {
+    // margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 10px 5x 10px;
+    background: #FCFCFC;
+}
+
+
+.switch1 {
+    position: relative;
+    display: inline-block;
+
+}
+
+.red1 {
+    border-radius: 30px;
+}
+
+.paymentt1 {
+    background: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 30px;
+    text-decoration: none !important;
+
+}
+
+.paymentt1:hover {
+    outline: none !important;
+    text-decoration: none !important;
+    background: #fff;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.paymentt1:focus {
+    outline: none !important;
+    text-decoration: none !important;
+    background: #fff;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.payment1t:focus-visible {
+    outline: none !important;
+    text-decoration: none !important;
+    background: #fff;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.paymentt1:focus-within {
+    outline: none !important;
+    text-decoration: none !important;
+    background: #fff;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.siz1 {
+    font-size: 12px;
+}
+
+.formdivthreee1 {
+    background: #fff;
+    // padding: 0px 0px 5px 0px;
+}
+
+.mainbg1 {
+    // background: #F3F7FB;
+    padding: 12px 10px 0px 10px;
+
+}
+
+.mainbg21 {
+    // background: #F3F7FB;
+    padding: 6px 10px 0px 10px;
+
+}
+
+.mainbg212 {
+    // background: #F3F7FB;
+    padding: 15px 10px 0px 10px;
+
+}
+
+
+.table td.abcccc {
+    padding: 9px 0px 0px 10px !important;
+}
+
+
+.leftss1 {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #15BC7C;
+    /* padding-right: 0px; */
+    margin-right: 10px;
+    margin-top: 9px;
+}
+
+.details1 {
+    padding: 6px 10px 0px 0px;
+}
+
+.left-sp1 {
+    text-align: center;
+    padding-top: 2px;
+    color: #fff;
+}
+
+.ellipse-span {
+    padding: 10px 15px 6px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.dropdown-menu {
+    left: -125px !important;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #777;
+    cursor: pointer;
+
+    :hover {
+        background-color: #f1f1f1;
+    }
+}
+
+.inputcsss {
+    width: 90% !important;
+}
+
+.inputcsss1 {
+    width: 60% !important;
+}
+
+.inputcsss2 {
+    width: 30% !important;
+}
+
+
+.searchicon {
+    position: absolute;
+    top: 7px;
+    left: 210px;
+    cursor: auto;
+}
+
+.action {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.amstyle {
+    margin-top: 15px;
+}
+
+.ladda-button {
+    padding: 5px 15px !important;
+}
+
+
+.ladda-button[data-style=expand-right][data-loading] {
+    padding-right: 56px !important
+}
+
+.ladda-button[disabled],
+.ladda-button[disabled]:hover,
+.ladda-button[data-loading],
+.ladda-button[data-loading]:hover {
+    cursor: default;
+    color: #fff !important;
+    background-color: #16bc7c !important;
+    border: 1px solid #16bc7c;
+}
+
+.ladda-button,
+.ladda-button .ladda-spinner,
+.ladda-button .ladda-label {
+    transition: none !important;
+}
+
+.ladda-button,
+.ladda-button .ladda-label,
+.ladda-button .ladda-spinner {
+    -webkit-transition: all .3s cubic-bezier(.175, .885, .32, 1.275) !important;
+    transition: all .3s cubic-bezier(.175, .885, .32, 1.275) !important;
+}
+
+.fa-pencil-square-o {
+    font-size: 22px !important;
+    cursor: pointer;
+	color: #808080;
+	padding-top: 15px;
+}

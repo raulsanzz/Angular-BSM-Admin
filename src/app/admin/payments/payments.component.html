@@ -1,0 +1,771 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row bg">
+      <div class="col-md-3">
+        <div class="borright">
+          <div class="row right-border">
+            <div class="col-md-9">
+              <div class="first">
+                <span class="firsth">Total Earnings</span>
+              </div>
+              <div class="second">
+                <span> PKR</span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="bod-font">
+                <div class="third">
+                  <span class="favic"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-3">
+        <div class="borright2">
+          <div class="row right-border">
+            <div class="col-md-9">
+              <div class="first">
+                <span>Total Earnings</span>
+              </div>
+              <div class="second">
+                <span> PKR....</span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="bod-font">
+                <div class="third">
+                  <span class="favic"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<!-- pageLoader -->
+<div *ngIf=pageLoader class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+
+  <!-- wrapper 2 -->
+  <div class="second2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class=" col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Pending Verifications</a>
+            </li>
+            <!-- <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1">Upcoming Payments</a></li> -->
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">History</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <!-- Passport -->
+            <div id="home" class="tab-pane fade show active">
+              <div class="inner-tab">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label>
+                        <input type="text" (keyup.enter)="searchByNameHistoryPending($event.target.value)" class="form-control" placeholder="Search">
+                        <!-- <span class="searchicon"><i class="fa fa-search" aria-hidden="true"></i></span> -->
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+
+                  </div>
+                  <div class="col-md-3">
+                    <!-- <div class="form-group row">
+                      <span class="col-sm-6 col-form-label">Fee Type:</span>
+                      <div class="col-sm-6">
+                        <select class="form-control" id="sel1">
+                          <option value="All">All</option>
+
+                        </select>
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group row">
+                      <span class="col-sm-6 col-form-label">Property Type:</span>
+                      <div class="col-sm-6">
+                        <select class="form-control" (change)="searchByPropertyPending($event.target.value)" id="sel1">
+                          <option value="">All</option>
+                          <option *ngFor="let data of propertyList" value="{{data?.name}}">
+                            {{data?.name}}</option>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              
+              
+              </div>
+              <div class="rowtab">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Property</th>
+                            <th scope="col">Unit</th>
+                            <th scope="col">AMOUNT PAID</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of FilterdTwo; let i = index ">
+                            <td>
+                              <div class="mainbg">
+                                <div class="circletwo">
+                                  <span><img src="../../../assets/images/dashboard-admin.png"> </span>
+                                </div>
+                                <div class="text-pro">
+                                  <p class=" pro-paragraph">{{data?.customer?.username}}</p>
+
+                                </div>
+
+                              </div>
+                            </td>
+                            <td>
+                              <div class="second">
+                                <span>{{data?.unit?.property?.name}}</span>
+
+                              </div>
+
+                            </td>
+                            <td>
+                              <div class="first">
+                                <span>{{data?.unit?.name}} </span>
+                              </div>
+                            </td>
+                            <td>
+
+                              <div class="first">
+                                <span>{{data?.amount}} PKR.</span>
+                              </div>
+                              <div class="first2">
+                                <span (click)="viewDetails(data)" data-toggle="modal" data-target="#myModal5">View Receipt</span>
+                              </div>
+                              
+                            </td>
+
+                            <td>
+                              <span class="btnsty"><button type="button" (click)="getReject(data)" class="btn stybtn2"
+                                  data-toggle="modal" data-target="#myModal3">Reject</button></span>
+                              <span class="btnsty2"><button type="button" *ngIf="data.bookingId"
+                                  (click)="getPlanPaymentForm(data)" class="btn stybtn3" data-toggle="modal"
+                                  data-target="#myModal">Accept</button></span>
+                              <span class="btnsty2"><button *ngIf="!data.bookingId" (click)="getPlanPayment(data)"
+                                  type="button" class="btn stybtn3" data-toggle="modal"
+                                  data-target="#myModal1">Accept</button></span>
+
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+
+            <!-- Permit -->
+            <!-- <div id="menu1" class="tab-pane fade">
+              <div class="inner-tab">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <input type="text" class="form-control input-lg" placeholder="" />
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-group row">
+                      <span class="col-sm-2 col-form-label">Date:</span>
+                      <div class="col-sm-5">
+
+                        <div class="form-group">
+                          <input type="date" class="form-control input-lg" placeholder="From" />
+                        </div>
+
+
+                      </div>
+                      <div class="col-sm-5">
+
+                        <div class="form-group">
+                          <input type="date" class="form-control input-lg" placeholder="" />
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group row">
+                      <span class="col-sm-5 col-form-label">Fee Type:</span>
+                      <div class="col-sm-7">
+                        <select class="form-control" id="sel1">
+                          <option value="All">All</option>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rowtab">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Property</th>
+                            <th scope="col">Fee</th>
+                            <th scope="col">AMOUNT Due On</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="mainbg">
+                                <div class="circletwo">
+                                  <span><img src="../../../assets/images/dashboard-admin.png"> </span>
+                                </div>
+                                <div class="text-pro">
+                                  <p class=" pro-paragraph">Massab Khan</p>
+                                </div>
+
+                              </div>
+                            </td>
+                            <td>
+                              <div class="second">
+                                <span>Total Earnings</span>
+                              </div>
+                              <div class="first">
+                                <span> PKR....</span>
+                              </div>
+                            </td>
+                            <td>
+                              <label class="lbelfirst">
+                                Booking Fee
+                              </label>
+                            </td>
+                            <td>
+
+                              <div class="second">
+                                <span>Total Earnings</span>
+                              </div>
+                              <div class="first">
+                                <span> PKR....</span>
+                              </div>
+                            </td>
+
+
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- Checkout Memo -->
+            <div id="menu2" class="tab-pane fade">
+              <div class="inner-tab">
+                <div class="row">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <input type="text" (keyup.enter)="searchByNameHistory($event.target.value)" class="form-control input-lg" placeholder="Search" />
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <p></p>
+                  </div>
+                  <div class="col-md-3">
+                    <!-- <div class="form-group row">
+                      <span class="col-sm-6 col-form-label">Fee Type:</span>
+                      <div class="col-sm-6">
+                        <select class="form-control" id="sel1">
+                          <option value="All">All</option>
+
+                        </select>
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group row">
+                      <span class="col-sm-6 col-form-label">Property Type:</span>
+                      <div class="col-sm-6">
+                        <select class="form-control" (change)="searchByProperty($event.target.value)" id="sel1">
+                          <option value="">All</option>
+                          <option *ngFor="let data of propertyList" value="{{data?.name}}">{{data?.name}}</option>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="rowtab">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Property</th>
+                            <th scope="col">Unit</th>
+                            <th scope="col">AMOUNT PAID</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of Filtered">
+                            <td>
+                              <div class="mainbg">
+                                <div class="circletwo">
+                                  <span><img src="../../../assets/images/dashboard-admin.png"> </span>
+                                </div>
+                                <div class="text-pro">
+                                  <p class=" pro-paragraph">{{data?.customer?.username}}</p>
+                                </div>
+
+                              </div>
+                            </td>
+                            <td>
+                              <div class="second">
+                                <span>{{data?.unit?.property?.name}}</span>
+                              </div>
+
+                            </td>
+                            <td>
+                            
+                              <div class="fourth">
+                                <span> {{data?.unit?.name}}</span>
+                              </div>
+                            </td>
+                            <td>
+
+                              <div class="first">
+                                <span>{{data?.amount}} PKR.</span>
+                              </div>
+                            </td>
+                            <td>
+                              <!-- <div class="third3">
+                                <span>Total Earnings</span>
+                              </div> -->
+                              <div class="fourth">
+                                <span> {{data?.status}}</span>
+                              </div>
+                            </td>
+                            <td>
+                              <span class="btnsty"><button type="button" (click)="viewDetails(data)" data-toggle="modal" data-target="#myModal4" class="btn stybtn">View Details</button></span>
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Payment Accepted</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form>
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <input type="text" id="amount" class="form-control" value="{{frontVlaue?.amount}}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <input type="text" class="form-control" value="{{frontVlaue?.date}}" disabled placeholder="Date">
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+
+                <input type="text" class="form-control" value="{{frontVlaue?.description}}" disabled
+                  placeholder="Description">
+              </div>
+            </div>
+
+
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" id="closePopup" class="btn defsize" data-dismiss="modal">Cancel</button>
+        <button type="button" [ladda]="btnLoader1" (click)="approvedRequest()" class="btn btn-primary prisize">Approve</button>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- The Modal 2 -->
+<div class="modal" id="myModal1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Confirm Booking</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal 2 body -->
+      <div class="modal-body bodytwo">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="formrowcol3">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="one1">
+                    <span class="bd1">Payment Plan</span>
+                  </div>
+
+                </div>
+                <div class="col-md-3" style="text-align: right;">
+                  <span class="arrow1">
+                    {{planAmount}}
+                  </span>
+
+                </div>
+                <div class="col-md-3">
+                  <div class="one1">
+                    <span class="bd1">Remaining Amount</span>
+                  </div>
+
+                </div>
+                <div class="col-md-3" style="text-align: right;">
+                  <span class="arrow1">
+                    {{addAmount}}
+                  </span>
+
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="formdivthreee1">
+              <table class="table" style="margin-bottom: 0px;">
+                <thead>
+                  <tr>
+                    <th scope="col">Installment</th>
+                    <th scope="col">Date</th>
+                    <!-- <th scope="col">Fee</th> -->
+                    <th scope="col">AMOUNT
+                    <th scope="col">Total</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of installmentList; let i=index">
+
+                    <td class="abcccc" style="width: 30%;">
+                      <div class="media">
+                        <div class="media-left leftss1">
+                          <div class="d-flex justify-content-center">
+                            <span class="left-sp1">{{data?.installmentNumber}}</span>
+
+                          </div>
+                        </div>
+                        <div class="media-body">
+
+                          <div class="details1">
+
+                            <div class="form-group">
+
+                              <input type="text" class="form-control" [(ngModel)]="data.name"
+                                [disabled]="!data.isEditable">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="abcccc" style="width: 26%">
+                      <div class="mainbg21">
+
+                        <div class="form-group">
+
+                          <input  class="form-control" [(ngModel)]="data.dueDate"
+                            [disabled]="!data.isEditable">
+                           
+                        </div>
+                      </div>
+                    </td>
+                    <td class="abcccc" style="width: 20%">
+                      <div class="mainbg21">
+
+                        <div class="form-group">
+
+                          <input type="text" class="form-control" [(ngModel)]="data.amount"
+                            [disabled]="!data.isEditable" (focusout)="amountCalculated(data, i)">
+                        </div>
+                        <!-- <span> * </span>
+                        <span>{{data?.occurrence}} </span> -->
+                      </div>
+                    </td>
+
+                    <td class="abcccc" style="width: 17%">
+                      <div class="mainbg212">
+
+                        <span class="amstyle">Rs. {{+data?.amount * +data.occurrence}} </span>
+                      </div>
+                    </td>
+                    <td class="abcccc" style="width: 7%">
+                      
+
+                          <span  (click)="data.isEditable=!data.isEditable" *ngIf="!data.isEditable"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+            
+                      
+                     
+                 
+                    </td>
+
+                  </tr>
+
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" id="closePoppppup" class="btn defsize" data-dismiss="modal">Cancel</button>
+        <button type="button" [ladda]="btnLoader2" (click)="getPlansCopy()" class="btn btn-primary prisize">Confirm Booking</button>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- The Modal3 -->
+<div class="modal" id="myModal3">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Payment Rejected</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>Are u sure to want reject this payment.</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" id="closePoppup" class="btn defsize" data-dismiss="modal">Cancel</button>
+        <button type="button" [ladda]="btnLoader" class="btn btn-primary prisize" (click)="rejectedPayment()">Reject</button>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal 4 -->
+<div class="modal" id="myModal4">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Payment Details</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+                <h5>Amount Paid:</h5>
+                <p>{{detailPayment?.amount}}</p>
+            </div>
+            <div>
+                <h5>Unit #:</h5>
+                <p>{{detailPayment?.unit?.name}}</p>
+            </div>
+            <div>
+                <h5> Description:</h5>
+                <p>{{detailPayment?.description}}</p>
+            </div>
+    
+          </div>
+          <div class="col-md-6">
+              <div>
+                  <h5>Date:</h5>
+                  <p>{{detailPayment?.date}}</p>
+              </div>
+              <div>
+                  <h5>Customer Name:</h5>
+                  <p>{{detailPayment?.customer?.username}}</p>
+              </div>
+              <div>
+                  <h5> Status:</h5>
+                  <p>{{detailPayment?.status}}</p>
+              </div>
+      
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 borsyl" *ngFor="let data of imageUrl">
+             <img style="height: 240px; width:240px; border-radius: 0;border: 4px solid #dddddd;" [src]='data' > 
+          </div>
+        </div>
+       
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal 5 -->
+<div class="modal" id="myModal5">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Payment Details</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+                <h5>Amount Paid:</h5>
+                <p>{{detailPayment?.amount}}</p>
+            </div>
+            <div>
+                <h5>Unit #:</h5>
+                <p>{{detailPayment?.unit?.name}}</p>
+            </div>
+            <div>
+                <h5> Description:</h5>
+                <p>{{detailPayment?.description}}</p>
+            </div>
+    
+          </div>
+          <div class="col-md-6">
+              <div>
+                  <h5>Date:</h5>
+                  <p>{{detailPayment?.date}}</p>
+              </div>
+              <div>
+                  <h5>Customer Name:</h5>
+                  <p>{{detailPayment?.customer?.username}}</p>
+              </div>
+              <div>
+                  <h5> Status:</h5>
+                  <p>{{detailPayment?.status}}</p>
+              </div>
+      
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 borsyl" *ngFor="let data of imageUrl">
+             <img style="height: 240px; width:240px; border-radius: 0;border: 4px solid #dddddd;" [src]='data' > 
+          </div>
+        </div>
+       
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

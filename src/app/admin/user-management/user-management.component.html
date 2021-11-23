@@ -1,0 +1,146 @@
+<div *ngIf="!unitDetailsView">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <form action="">
+            <div class="form-group">
+              <input type="text" class="form-control" id="inputEmail4" placeholder="Title" />
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+      </div>
+  
+      <div class="rowtab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone #</th>
+                    <th scope="col">Occupation</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Property</th>
+                    <th scope="col">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of Customers">
+                    <td>
+                      <div class="mainbg">
+                        <div class="circletwo">
+                          <span><img src="../../../assets/images/building.png" />
+                          </span>
+                        </div>
+                        <div class="text-pro">
+                          <p class=" pro-paragraph">{{ c.username }}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span>{{ c.number }}</span>
+                    </td>
+                    <td>
+                      <span>{{ c.occupation }}</span>
+                    </td>
+                    <td>
+                      <span>{{ c.address }}</span>
+                    </td>
+                    <td>
+                      <span>{{ c.bookings.length }}</span>
+                    </td>
+  
+                    <td>
+                      <span><i data-toggle="modal" data-target="#myModal" class="fa fa-eye"
+                          aria-hidden="true"></i></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Modal 2 -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Details</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal 2 body -->
+      <div class="modal-body bodytwo">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="formrowcol3">
+              <div class="row">
+
+              </div>
+
+
+            </div>
+
+            <div class="formdivthreee1">
+              <table class="table" style="margin-bottom: 0px;">
+                <thead>
+                  <tr>
+                    <th>Customer name</th>
+                    <th>Unit Name</th>
+
+                    <th>Total Price</th>
+                    <th>Action</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let data of detailsArray">
+                    <td>{{data?.userName}}</td>
+                    <td>{{data?.name}}</td>
+      
+                    <td>{{data?.planAmount}}</td>
+                    <td>
+                      <span class="btnsty"><button type="button" (click)="onClickDetails(data)" class="btn stybtn">View Details</button></span>
+                    </td>
+
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      <!-- </div> -->
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" id="closePoppppup" class="btn defsize" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary prisize">Save</button>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<app-unit-details [unitInfo]="unitInfo" *ngIf="unitDetailsView"></app-unit-details>

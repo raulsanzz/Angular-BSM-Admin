@@ -1,0 +1,86 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row bg-g">
+      <div class="col-md-6">
+        <ul class="lio">
+          <li>
+            <span><i class="fa fa-play-circle"></i> Slide Show</span>
+          </li>
+          <li>
+            <span><i class="fa fa-picture-o"></i> Full Screen</span>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 text-right">
+        <input type="file" #imageUpload1 style="display: none;" />
+        <button data-toggle="modal" data-target="#myModal" class="btn-addmore">
+          <i class="fa fa-plus-circle"></i> Add More to your Gallery
+        </button>
+      </div>
+    </div>
+    <div class="row row-mar">
+      <div class="col-md-6">
+        <h4 class="font-15">Gallery Home</h4>
+        <p class="font-12">All your Files</p>
+      </div>
+      <div class="col-md-6 text-right">
+        <span (click)="backView()" class="spano"
+          ><i class="fa fa-th" aria-hidden="true"></i
+        ></span>
+        <span (click)="changeView()" class="spano"
+          ><i class="fa fa-th-large" aria-hidden="true"></i
+        ></span>
+      </div>
+    </div>
+    <div class="row row-mar" id="lz">
+      <div class="col-md-4" *ngFor="let data of Gallery; let i = index">
+        <div class="box-img">
+          <div class="del">
+            <span class="kk">Delete</span>
+          </div>
+          <img src="{{ base }}{{ data?.url }}" alt="" />
+          <p>( {{ i + 1 }} / {{ Gallery.length }})</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box-img-empty" (click)="imageUpload.click()">
+          <div class="ko">
+            <i class="fa fa-plus-circle"></i>
+            <p>Upload</p>
+            <input type="file" #imageUpload style="display: none;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content text-left">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box-img-empty" (click)="imageUpload.click()">
+              <div class="ko">
+                <i class="fa fa-plus-circle"></i>
+                <p>Upload</p>
+                <input
+                  (change)="onFileChanged($event)"
+                  type="file"
+                  #imageUpload
+                  style="display: none;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

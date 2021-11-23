@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files */
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+    
+    background-color: #e8ecf0;
+}
+.error-message-dt {
+    position: absolute;
+    top: -17px;
+    right: 15px;
+    color: red;
+    font-size: 14px;
+  }
+  .dropdown-toggle::after{
+    display: none !important;
+}
+
+
+.ellipse-span {
+    padding: 11px 9px 5px 9px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .ellipse-span:hover {
+    background-color: #f1f1f1;
+  }
+  .cursorrr{
+    cursor: pointer;
+  }
+
+
+  .spinner {
+    width: 100px;
+    height: 100px;  
+    position: relative;
+    margin: 20% auto;
+   }
+   
+   .double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #16bc7c;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+   
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+   }
+   
+   .double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+   }
+   
+   @-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+   }
+   
+   @keyframes sk-bounce {
+    0%, 100% {
+      transform: scale(0.0);
+      -webkit-transform: scale(0.0);
+    } 50% {
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+   }
+
+
+   @-webkit-keyframes rollIn {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+      transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes rollIn {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+      transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .rollIn {
+    -webkit-animation-name: rollIn;
+    animation-name: rollIn;
+  }
+  
+
+  div.cuppa-dropdown div.c-btn {
+    border-radius: 30px !important;
+    box-shadow: none !important;
+    padding: 6px !important;
+
+  }
+  
+  div.cuppa-dropdown div.c-token{
+    background: #16bc7c !important;
+    border-radius: 30px !important;
+  }
+
+  div.selected-list div.c-list div.c-token{
+    border-radius: 30px !important;
+  }
+
+
+.multiselect-dropdown .dropdown-btn {
+  border-radius: 30px !important;
+}
+.multiselect-dropdown .dropdown-btn .selected-item{
+  background: #16bc7c !important;
+  border-radius: 30px !important;
+  padding: 0 10px !important;
+  border: 1px solid #16bc7c !important;
+}
+  
